@@ -6,7 +6,7 @@
 % for cyclic peptides based on projected normal vectors and accumulated
 % signed rotational angles.
 %
-% Input files:
+% Inputs:
 %   - coordinates_C.csv   : coordinates of C atoms
 %   - coordinates_CA.csv  : coordinates of C-alpha atoms
 %   - coordinates_N.csv   : coordinates of N atoms
@@ -16,7 +16,6 @@
 %
 % Output:
 %   - totalAngles : accumulated twist angle for each 14-residue block
-%   - theta       : local signed twist angles from the final processed block
 %
 % Authors: Oh, M., Oh, C., and Tabassum, E.
 % =========================================================================
@@ -132,3 +131,6 @@ for j = 1:blockSize:nRows
     % Move to next block
     idx = idx + 1;
 end
+
+% Save results
+save('totalAngles.mat', 'totalAngles')
